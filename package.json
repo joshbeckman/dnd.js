@@ -1,0 +1,16 @@
+{
+  "name": "dnd.js",
+  "version": "1.0.0",
+  "private": true,
+  "license":"MIT",
+  "description": "Easily bind drag-n-drop events and handlers.",
+  "author": "Joshua Beckman <@jbckmn>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jbckmn/dnd.js.git"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*"
+  }
+}
