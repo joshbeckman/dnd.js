@@ -63,7 +63,7 @@
         handleDragOver(evt, element, opts.dragOver);
       }, false);
       element.addEventListener('dragleave', function(evt){
-        handleDragLeave(evt, element, opts.dragLeave);
+        handleDragOver(evt, element, opts.dragLeave);
       }, false);
       element.addEventListener('drop', function(evt){
         handleDrop(evt, element, onDropCb);
