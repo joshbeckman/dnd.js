@@ -6,7 +6,8 @@
         dnd.init(elements[i], {
           typeRegex: elements[i].dataset.dndTypeRegex,
           readType: elements[i].dataset.dndReadType,
-          dragOver: elements[i].dataset.dndDragOver
+          dragOver: elements[i].dataset.dndDragOver,
+          dragLeave: elements[i].dataset.dndDragLeave
         }, elements[i].dataset.dndOnDrop);
       }
     },
@@ -16,6 +17,9 @@
         readType: options.readType || 'readAsDataURL',
         dragOver: options.dragOver || function(element){
           element.style.boxShadow = '0 0 10px grey inset';
+        },
+        dragLeave: options.dragLeave || function(element){
+          element.style.boxShadow = 'none';
         }
       };
       function handleDragOver(evt, element, cb) {
@@ -54,6 +58,12 @@
       }
       element.addEventListener('dragover', function(evt){
         handleDragOver(evt, element, opts.dragOver);
+      }, false);
+      element.addEventListener('dragenter', function(evt){
+        handleDragOver(evt, element, opts.dragOver);
+      }, false);
+      element.addEventListener('dragleave', function(evt){
+        handleDragLeave(evt, element, opts.dragLeave);
       }, false);
       element.addEventListener('drop', function(evt){
         handleDrop(evt, element, onDropCb);
